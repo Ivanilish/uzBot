@@ -7,7 +7,9 @@ from nltk.stem.lancaster import LancasterStemmer
 import json
 import random
 import pickle
+import discord
 
+key = 'su key aqui'
 #nltk.download('punkt') #al inicio de la compilacion
 
 #instanciacion de la clase
@@ -92,26 +94,46 @@ except:
 
 def mainBot():
 
+    #discord key
+    global key
+    #abrir conexion a discord
+    conx = discord.Client()
+
     while True:
-        inputs = input("User: ")
 
-        cubeta = [ 0 for _ in range(len(words))]
-        process_input = nltk.word_tokenize(inputs)
-        process_input = [stemmer.stem(word.lower()) for word in process_input]
+        # evento de discord
+        @conx.event
+        async def on_message(msg):
 
-        for one_word in process_input:
-            for indice, word in enumerate(words):
-                if word == one_word:
-                    cubeta[indice] = 1
+            # para que no recoosca respuestas del bot 
+            # solo del usuario
+            if msg.author == conx.user: 
+                return
 
-        res = model.predict([numpy.array(cubeta)])
-        index_res = numpy.argmax(res)
-        tag = tags[index_res]
+            #inputs = input("User: ")
+            cubeta = [ 0 for _ in range(len(words))]
+            #process_input = nltk.word_tokenize(inputs)
+            process_input = nltk.word_tokenize(msg.content)
+            process_input = [stemmer.stem(word.lower()) for word in process_input]
 
-        for aux_tag in data["question"]:
-            if aux_tag["tag"] == tag:
-                answer = aux_tag["respuestas"]
+            for one_word in process_input:
+                for indice, word in enumerate(words):
+                    if word == one_word:
+                        cubeta[indice] = 1
 
-        print("Uzbot: ", random.choice(answer))
+            res = model.predict([numpy.array(cubeta)])
+            index_res = numpy.argmax(res)
+            tag = tags[index_res]
+
+            for aux_tag in data["question"]:
+                if aux_tag["tag"] == tag:
+                    answer = aux_tag["respuestas"]
+
+            #print("Uzbot: ", random.choice(answer))
+            # envio de respuesta a discord  
+            await msg.channel.send(random.choice(answer))
+
+        #correr discord
+        conx.run(key)
 
 mainBot()

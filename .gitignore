@@ -5,3 +5,5 @@ model.tflearn.index
 model.tflearn.meta
 
 trainig_data.pickle
+
+discord_desp.py
