@@ -1,0 +1,14 @@
+{
+    "question":[
+        {
+            "tag": "saludo",
+            "patrones": ["hola", "Un saludo", "hello"],
+            "respuestas": ["Un buen dia", "En que puedo ayudarte", "Gracias por escribirnos"]
+        },
+        {
+            "tag": "despedida",
+            "patrones":["Adios", "Hasta la proxima", "Bye"],
+            "respuestas": ["Chao", "Cuidate", "Nos vemos"]
+        }
+    ]
+}
