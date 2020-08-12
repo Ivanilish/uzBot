@@ -9,6 +9,16 @@
             "tag": "despedida",
             "patrones":["Adios", "Hasta la proxima", "Bye"],
             "respuestas": ["Chao", "Cuidate", "Nos vemos"]
+        },
+        {
+            "tag": "almuerzos",
+            "patrones":["tiene almuerzos", "tiene desayunos", "tiene merienda", "tiene cena", "almuerzo","desayuno","cena", "merienda"],
+            "respuestas": ["si", "no"]
+        },
+        {
+            "tag": "menu",
+            "patrones":["el menu porfavor", "que tiene", "que comida tiene"],
+            "respuestas": ["tenemos el almuerzo basico: Sopa, Seco y Jugo", "tenemos el almuerzo ejecutivo: Sopa, Seco, Jugo y postre", "platos a la carta"]
         }
     ]
 }
