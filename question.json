@@ -13,12 +13,18 @@
         {
             "tag": "almuerzos",
             "patrones":["tiene almuerzos", "tiene desayunos", "tiene merienda", "tiene cena", "almuerzo","desayuno","cena", "merienda"],
-            "respuestas": ["si", "no"]
+            "respuestas": ["si","si sera un placer atenderlo"]
         },
         {
             "tag": "menu",
             "patrones":["el menu porfavor", "que tiene", "que comida tiene"],
-            "respuestas": ["tenemos el almuerzo basico: Sopa, Seco y Jugo", "tenemos el almuerzo ejecutivo: Sopa, Seco, Jugo y postre", "platos a la carta"]
+            "respuestas": ["Tenemos el almuerzo basico: Sopa, Seco y Jugo", "Tenemos el almuerzo ejecutivo: Sopa, Seco, Jugo y Postre", "Platos a la Carta"]
+        },
+        {
+            "tag": "precio",
+            "patrones":["cuanto es ?", "cuanto es", "el precio del plato a la carta", "cuanto cuesta el postre", "solo una sopa cuanto es ?","solo sopa cuanto es ?","cuanto es por el almuerzo ?", "cuanto es por el almuerzo",  "cuanto es por el desayuno" , "cuanto es por el desayuno ?" , "cuanto es por el cena", "cuanto es por el cena ?"],
+            "respuestas": ["puede acercarce a la caja para cancelar", "En la caja le ayudan con el precio", "El postre solo cuenta 25 cvts! :3", "solo una sopa es 1$", "El plato a carta tiene un precio de 3$ cualquiera, cual desea", "El almuerzo cuesta 2$", "el desayuno cuesta 2,50$","la cena cuesta 2,50$"]
         }
+        
     ]
 }
